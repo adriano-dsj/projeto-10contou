@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>10Contou - Acesse ou cadastre-se</title>
+	<title>10Contou - Cadastro de ofertas</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -16,8 +16,7 @@
 
 		    <div style="padding-right: 40px;">
 				<ul class="nav navbar-nav navbar-right">
-					<a style="color: #FFF96B ;" href="cadastro.html">Cadastre-se</a>
-					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.html" style="color: black; text-decoration: none;">ENTRAR</a></button>
+					<button class="btn btn-warning" style="margin-left: 10px;"><a href="#" style="color: black; text-decoration: none;">PERFIL</a></button>
 				</ul>
 			</div>		
 
@@ -25,14 +24,14 @@
 				
 			    <div class="navbar-header">
 			    	<!-- LOGO -->
-			    	<a href="index.html" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
+			    	<a href="index.php" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
 			    	
 					
 			    </div>
 
 				<div class="collapse navbar-collapse" id="menu_lista">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="link_menu"><a href="index.html">HOME</a></li>
+						<li class="link_menu"><a href="index.php">HOME</a></li>
 						<li class="link_menu"><a href="#sobre">SOBRE</a></li>
 						<li class="link_menu"><a href="#parceiros">PARCEIROS</a></li>
 						<li class="link_menu"><a href="#contato">CONTATO</a></li>
@@ -46,20 +45,50 @@
 	<div id="principal" style="background-color: #FFF96B;">
 		<div class="container" style="background: #FFF96B;">
 
-			<form  action="#" method="get" id="logins" style="margin-top: 10px; margin-bottom: 55px;">
+			<form action="#" method="get" id="cadastrofor">
+					<br>
 
-				<br>
-
-				<label class="lblcli" >Email: </label><input id="email" type="email" name="email">
+			<div class="container" style="margin-left: 20px;">
+						
+					<div style="margin: 10px; margin-left: 330px;">
+						<img id="img" style="width: 300px;">
+						<br>
+						<label id="txtlogo">Insira a imagem da oferta</label><input id="foto" type="file" name="foto">
+					</div>
+					
+					<br>
 				
-				<br>
+				<div style="margin: 10px">	
+					<label  class="lblfor">Título da oferta: </label><input id="oferta" type="text" name="oferta">	
+					<label  class="lblfor"  style="margin-left: 250px; ">Data/Hora de inicio: </label><input id="dataini" type="text" name="dataini">
+				</div>
+				
+				<div style="margin: 10px">
 
-				<label class="lblcli" id="lblsenha">Senha: </label><input style="margin-left: 5px;" id="senha" type="password" name="senha">
+					<div class="row">
+						<div class="col-md-3">
+							<label  class="lblfor">Descrição: </label>
+						</div>
+						<div class="col-md-9">
+							<label class="lblfor" style="margin-left: 243px;">Data/Hora de Término:</label> <input id="datafim" type="text" name="datafim">	
+						</div>
+					</div>
 
-				<br>
-				<a style="margin-left: 15px; font-size: 13px" href="index.html">Esqueci minha senha</a>
+					<div class="row">
+						<div class="col-md-4" style="margin-left: 20px;">
+							<textarea id="txtarea" style="resize: vertical;" name="txtarea" value="texto" rows="5" cols="38"></textarea>	
+						</div>
+						<div class="col-md-6" style="margin-top: 50px;">
+							<input id="cadastrar" class="btn btn-primary btn-lg" type="submit" value="Ofertar" name="ofertar" onclick="confirmar()"></input>
+						</div>
+						<div class="col-md-3">
+							
+						</div>
+					</div>
+					
+				</div>
 
-				<input id="login" class="btn btn-primary btn-sm" type="submit" value="login" name="login" onclick="confirmar()">		
+			</div>				
 			</form>
 
 		</div>
@@ -76,7 +105,7 @@
 					</div>
 
 					<div class="col-md-7" >
-						<div class="col-md-1 lista_footer"><a href="index.html">HOME</a></div>
+						<div class="col-md-1 lista_footer"><a href="index.php">HOME</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">SOBRE</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">PARCEIROS</a></div>
 						<div class="col-md-1 lista_footer"><a href="#" style="margin-left: 30px">CONTATO</a></div>
@@ -120,10 +149,25 @@
 			</div>
 
 		    <script src="js/jquery.min.js"></script>
-		    <script type="text/javascript">
+		    <script>
+
+				  $(function(){
+			        $('#foto').change(function(){
+			            const file = $(this)[0].files[0]
+			            const fileReader = new FileReader()
+			            fileReader.onloadend = function(){
+			                $('#img').attr('src', fileReader.result)
+			            }
+			            fileReader.readAsDataURL(file)
+
+			            $('#txtlogo').hide();
+			        })
+			      })
+
 			      function confirmar(){
-			      	alert("login realizado com sucesso");
-			      }	  		    	
+			      	alert("Oferta cadastrada com sucesso");			      		
+			      }	    	
+
 		    </script>
 		</footer>
 	</body>

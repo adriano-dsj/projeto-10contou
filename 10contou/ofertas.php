@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>10Contou - Favoritos</title>
+	<title>10Contou - Ofertas</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -16,8 +16,8 @@
 
 		    <div style="padding-right: 40px;">
 				<ul class="nav navbar-nav navbar-right">
-					<a style="color: #FFF96B ;" href="cadastro.html">Cadastre-se</a>
-					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.html" style="color: black; text-decoration: none;">ENTRAR</a></button>
+					<a style="color: #FFF96B ;" href="cadastro.php">Cadastre-se</a>
+					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.php" style="color: black; text-decoration: none;">ENTRAR</a></button>
 				</ul>
 			</div>		
 
@@ -25,14 +25,14 @@
 				
 			    <div class="navbar-header">
 			    	<!-- LOGO -->
-			    	<a href="index.html" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
+			    	<a href="index.php" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
 			    	
 					
 			    </div>
 
 				<div class="collapse navbar-collapse" id="menu_lista">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="link_menu"><a href="index.html">HOME</a></li>
+						<li class="link_menu"><a href="index.php">HOME</a></li>
 						<li class="link_menu"><a href="#sobre">SOBRE</a></li>
 						<li class="link_menu"><a href="#parceiros">PARCEIROS</a></li>
 						<li class="link_menu"><a href="#contato">CONTATO</a></li>
@@ -50,30 +50,19 @@
 	<div class="container" style="background-color: #FFF96B;">
 
 		<div class="row" style="text-align: center; margin: 20px 0 20px 0;">
-				<p style="color: #0B0B61; font-size: 30px;">FAVORITOS</p>
+				<p style="color: #0B0B61; font-size: 30px;">MINHAS OFERTAS</p>
 		</div>
 
-		
 		<div class="row"> 
 			<div class="col-sm-6 col-md-4"> 
 
 				<div class="thumbnail">
-					
-					<div style="background-color: #fff">
-						<div class="row">
-							<div class="col-md-5">
-								<img src="icones/estrela.png" >
-							</div>
-							<div class="col-md-4" style="margin-left: 10px;">
-								<img src="icones/fogo.png" >
-							</div>
-							<div class="col-md-1" style="margin-left: 20px; ">
-								<img src="icones/info.png" >
-							</div>																						
-						</div>
-					</div> 
 						
-						<img src="img/arroz.jpg" class="img-thumbnail"> 
+						<div style="background-color: #fff; text-align: center;" >
+							<img src="icones/fogo.png" onclick="alert('Oferta em promoção')" class="img-thumbnail">
+						</div>
+						
+							<img src="img/arroz.jpg" class="img-thumbnail"> 
 
 					<div class="caption"> 
 						<h3>Promoção1</h3> 
@@ -84,15 +73,14 @@
 			</div> 
 
 			<div class="col-sm-6 col-md-4"> 
-				<div class="thumbnail"> 
+				<div class="thumbnail">
 
-					<div style="background-color: #fff">
-						<img src="icones/estrela.png" >
-						<img src="icones/fogo.png" style="margin-left: 130px;" >
-						<img src="icones/info.png" style="margin-left: 120px;" >					
-					</div> 
+						<div style="background-color: #fff; text-align: center;" >
+							<img src="icones/fogo.png" onclick="alert('Oferta em promoção')" class="img-thumbnail">
+						</div>					
 
 					<img src="img/beleza.jpg" class="img-thumbnail"> 
+
 					<div class="caption"> 
 						<h3>Promoção2</h3> 
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet risus ligula. Mauris pretium magna nec porttitor vulputate.</p> <p><a href="#" class="btn btn-primary" role="button">Abrir</a>
@@ -103,12 +91,10 @@
 			<div class="col-sm-6 col-md-4"> 
 				<div class="thumbnail"> 
 
-					<div style="background-color: #fff">
-						<img src="icones/estrela.png" >
-						<img src="icones/fogo.png" style="margin-left: 130px;" >
-						<img src="icones/info.png" style="margin-left: 120px;" >					
-					</div> 
-										
+					<div style="background-color: #fff; text-align: center;" >
+						<img src="icones/fogo.png" onclick="alert('Oferta em promoção')" class="img-thumbnail">
+					</div>			
+
 					<img src="img/limpeza.jpg" class="img-thumbnail" style="width:400px; height: 230px;"> 
 					<div class="caption"> 
 						<h3>Promoção3</h3> 
@@ -134,7 +120,7 @@
 					</div>
 
 					<div class="col-md-7" >
-						<div class="col-md-1 lista_footer"><a href="index.html">HOME</a></div>
+						<div class="col-md-1 lista_footer"><a href="index.php">HOME</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">SOBRE</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">PARCEIROS</a></div>
 						<div class="col-md-1 lista_footer"><a href="#" style="margin-left: 30px">CONTATO</a></div>

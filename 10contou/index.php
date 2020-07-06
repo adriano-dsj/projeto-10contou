@@ -1,7 +1,11 @@
+<?php
+	session_start();
+?>
+
 <!doctype html>
 <html>
 <head>
-	<title>10Contou- Página inicial</title>
+	<title>10Contou - Página inicial</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -15,10 +19,22 @@
 	<nav class="navbar">
 
 	    <div style="padding-right: 40px;">
-			<ul class="nav navbar-nav navbar-right">
-				<a style="color: #FFF96B ;" href="cadastro.html">Cadastre-se</a>
-				<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.html" style="color: black; text-decoration: none;">ENTRAR</a></button>
-			</ul>
+
+			<?php
+			if(!isset($_SESSION['clienteLogado']) and !isset($_SESSION['fornecedorLogado'])){
+			echo('<ul class="nav navbar-nav navbar-right">
+				<a style="color: #FFF96B ;" href="cadastro.php">Cadastre-se</a>
+				<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.php" style="color: black; text-decoration: none;">ENTRAR</a></button>
+			</ul> ');
+			} else {
+				echo('
+				<ul class="nav navbar-nav navbar-right"><button class="btn btn-warning" style="margin-left: 10px;">
+					<a href="_back_end/logout.php" style="color: black; text-decoration: none;">SAIR</a>
+				</button></ul>
+				');
+			}
+			?>
+			
 		</div>		
 
 		<div class="container">
@@ -26,23 +42,15 @@
 		    <div class="navbar-header">
 		    	
 		    	<!-- LOGO -->
-		    	<a href="index.html" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
-
-<!--
-				<button type="button" style="margin-top:25px" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_lista" aria-expanded="false">
-					<span style="background-color:#9bbd46" class="icon-bar"></span>
-					<span style="background-color:#9bbd46" class="icon-bar"></span>
-					<span style="background-color:#9bbd46" class="icon-bar"></span>
-				</button>
--->
+		    	<a href="index.php" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
 		    </div>
 
 			<div class="collapse navbar-collapse" id="menu_lista">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="link_menu"><a href="index.html">HOME</a></li>
-					<li class="link_menu"><a href="#sobre.html">SOBRE</a></li>
-					<li class="link_menu"><a href="#parceiros.html">PARCEIROS</a></li>
-					<li class="link_menu"><a href="#contato.html">CONTATO</a></li>
+					<li class="link_menu"><a href="index.php">HOME</a></li>
+					<li class="link_menu"><a href="#sobre.php">SOBRE</a></li>
+					<li class="link_menu"><a href="#parceiros.php">PARCEIROS</a></li>
+					<li class="link_menu"><a href="#contato.php">CONTATO</a></li>
 				</ul>
 			</div>
 
@@ -170,10 +178,10 @@
 				</div>
 
 				<div class="col-md-7" >
-					<div class="col-md-1 lista_footer"><a href="index.html">HOME</a></div>
-					<div class="col-md-1 lista_footer"><a href="#sobre.html">SOBRE</a></div>
-					<div class="col-md-1 lista_footer"><a href="#parceiros.html">PARCEIROS</a></div>
-					<div class="col-md-1 lista_footer"><a href="#contato.html" style="margin-left: 30px">CONTATO</a></div>
+					<div class="col-md-1 lista_footer"><a href="index.php">HOME</a></div>
+					<div class="col-md-1 lista_footer"><a href="#sobre.php">SOBRE</a></div>
+					<div class="col-md-1 lista_footer"><a href="#parceiros.php">PARCEIROS</a></div>
+					<div class="col-md-1 lista_footer"><a href="#contato.php" style="margin-left: 30px">CONTATO</a></div>
 				</div>
 
 				<div class="col-md-2" style="color: #FFF96B ;">

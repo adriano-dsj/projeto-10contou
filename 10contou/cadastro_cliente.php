@@ -1,7 +1,11 @@
+<?php
+	session_start();
+?>
+
 <!doctype html>
 <html>
 <head>
-	<title>10Contou - Cadastre-se</title>
+	<title>10Contou - Cadastro do cliente</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -16,32 +20,21 @@
 
 		    <div style="padding-right: 40px;">
 				<ul class="nav navbar-nav navbar-right">
-					<a style="color: #FFF96B ;" href="#cadastro.html">Cadastre-se</a>
-					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.html" style="color: black; text-decoration: none;">ENTRAR</a></button>
+					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.php" style="color: black; text-decoration: none;">ENTRAR</a></button>
 				</ul>
 			</div>		
 
 			<div class="container">
 				
 			    <div class="navbar-header">
-			    	<!-- LOGO -->
-			    	<a href="index.html" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
+			    	<a href="index.php" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
 			    	
-
-	<!--	    	 Botão para usar no SMARTPHONE, porém fiz algumas gambiarras e a pagina não fica certinha se não deixar ela maximizada.
-
-				<button type="button" style="margin-top:25px" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_lista" aria-expanded="false">
-					<span style="background-color:#9bbd46" class="icon-bar"></span>
-					<span style="background-color:#9bbd46" class="icon-bar"></span>
-					<span style="background-color:#9bbd46" class="icon-bar"></span>
-				</button>
-	-->	
 					
 			    </div>
 
 				<div class="collapse navbar-collapse" id="menu_lista">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="link_menu"><a href="index.html">HOME</a></li>
+						<li class="link_menu"><a href="index.php">HOME</a></li>
 						<li class="link_menu"><a href="#sobre">SOBRE</a></li>
 						<li class="link_menu"><a href="#parceiros">PARCEIROS</a></li>
 						<li class="link_menu"><a href="#contato">CONTATO</a></li>
@@ -55,18 +48,58 @@
 	<div id="principal" style="background-color: #FFF96B;">
 		<div class="container" style="background: #FFF96B;">
 
-			<div class="row" style="text-align: center">
-				<p style="color: #0B0B61; font-size: 30px">DEFINA SEU PERFIL DE USUÁRIO</p>
-			</div>
+			<form  action="_back_end/cadastro_cli.php" method="post" id="cadastrocli">
+				<br/>
+				<label class="lblcli">Nome: </label>
+				<input id="nome" type="text" name="nome">
+				<br/>
 
-			<div class="row" align="center" style="margin-top: 120px;">
-				<div class="col-md-6">
-					<button class="btn btn-primary btn-lg"><a href="cadastro_fornecedor.html" style="color: white">FORNECEDOR</a></button>
-				</div>
-				<div class="col-md-6">
-					<button class="btn btn-primary btn-lg"><a href="cadastro_cliente.html"style="color: white">CONSUMIDOR</a></button>
-				</div>
-			</div>
+				<fildset>
+				<label class="lblcli" >Celular: </label>
+				<input id="cel" type="tel" name="cel">
+				<label class="lblcli" >Email: </label>
+				<input id="email" type="email" name="email">
+				<br/>
+
+				<label class="lblcli" >UF: </label>
+				<input id="uf" type="text" maxlength="2" name="uf">
+				<label class="lblcli" >Município: </label>
+				<input id="mun" type="text" name="mun">
+				<label class="lblcli" >Bairro: </label>
+				<input id="bairro" type="text" name="bairro">
+				<br/>
+
+				<label class="lblcli"  id="lblrua">Endereço: </label>
+				<input id="rua" type="text" name="end">	
+				<label class="lblcli" id="lblnum">Nº: </label>
+				<input id="num" type="number" name="num">
+				<br/>	
+
+				<label class="lblcli" id="lblsenha">Senha: </label>
+				<input id="senha" type="password" name="senha">
+				<label class="lblcli" id="lblcsenha">Confirmar Senha: </label>
+				<input id="confSenha" type="password" name="confSenha"/>
+				<br/>
+				<input id="cadastrar" class="btn btn-primary btn-lg" type="submit" value="Cadastrar" name="cadastrar">		
+			</form>
+
+			<?php
+				if(isset($_SESSION['camposVazios'])){
+					echo('<br/><b>Nenhum campo pode ficar vazio!</b>');
+				}
+				unset($_SESSION['camposVazios']);
+
+				if(isset($_SESSION['emailInvalido'])){
+					echo('<br/><b>Email já cadastrado!</b>');
+				}
+				unset($_SESSION['emailInvalido']);
+
+				if(isset($_SESSION['senhaIncoincidente'])){
+					echo('<br/><b>As senhas não coincidem!</b>');
+				}
+				unset($_SESSION['senhaIncoincidente']);
+
+			?>
 
 		</div>
 	</div>	
@@ -82,7 +115,7 @@
 					</div>
 
 					<div class="col-md-7" >
-						<div class="col-md-1 lista_footer"><a href="index.html">HOME</a></div>
+						<div class="col-md-1 lista_footer"><a href="index.php">HOME</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">SOBRE</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">PARCEIROS</a></div>
 						<div class="col-md-1 lista_footer"><a href="#" style="margin-left: 30px">CONTATO</a></div>
@@ -108,7 +141,7 @@
 					</div>
 
 					<div class="col-md-8" >
-						<div class="row"">
+						<div class="row">
 
 						</div>	
 

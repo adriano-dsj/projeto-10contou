@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -16,8 +20,7 @@
 
 		    <div style="padding-right: 40px;">
 				<ul class="nav navbar-nav navbar-right">
-					<a style="color: #FFF96B ;" href="cadastro.html">Cadastre-se</a>
-					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.html" style="color: black; text-decoration: none;">ENTRAR</a></button>
+					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.php" style="color: black; text-decoration: none;">ENTRAR</a></button>
 				</ul>
 			</div>		
 
@@ -25,14 +28,14 @@
 				
 			    <div class="navbar-header">
 			    	<!-- LOGO -->
-			    	<a href="index.html" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
+			    	<a href="index.php" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
 			    	
 					
 			    </div>
 
 				<div class="collapse navbar-collapse" id="menu_lista">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="link_menu"><a href="index.html">HOME</a></li>
+						<li class="link_menu"><a href="index.php">HOME</a></li>
 						<li class="link_menu"><a href="#sobre">SOBRE</a></li>
 						<li class="link_menu"><a href="#parceiros">PARCEIROS</a></li>
 						<li class="link_menu"><a href="#contato">CONTATO</a></li>
@@ -46,22 +49,16 @@
 	<div id="principal" style="background-color: #FFF96B;">
 		<div class="container" style="background: #FFF96B;">
 
-			<form action="login.html" method="get" id="cadastrofor">
-					<br>
+			<form action="_back_end/cadastro_for.php" method="post" id="cadastrofor">
+				
+				<br>
 
-					<div style="margin: 10px; margin-left: 30px;">
-						<img id="img" style="width: 100px;">
-						<br>
-						<label id="txtlogo">Insira a logo</label><input id="foto" type="file" name="foto">
-					</div>
-					
-					<br>
 				<div style="margin: 10px">
-					<label class="lblfor">Razão Social: </label> <input id="nome" type="text" name="nome">
-					<label  class="lblfor">CNPJ: </label><input id="cnpj" type="text" name="cnpj">
-					<label  class="lblfor">I.E: </label><input id="ie" type="text" name="ie">
-					<label class="lblfor">Segmento:</label>
-					<select id="ramo" name="ramo">
+					<label class="lblfor">Razão Social: </label> <input id="nome" type="text" name="razao">
+					<label  class="lblfor">CNPJ: </label><input id="cnpj" type="number" name="cnpj"><br/><br/>
+					<label  class="lblfor">I.E: </label><input id="ie" type="number" name="ie">
+					<label class="lblfor">Segmento: </label>
+					<select id="ramo" name="segmento">
 						<option value="1">Alimentício</option>
 						<option value="2">Beleza</option>
 						<option value="3">Pet</option>
@@ -71,34 +68,52 @@
 					</select>					
 				</div>
 
-					<br>
+				<br>
 				
 				<div style="margin: 10px">	
-					<label  class="lblfor">Endereço: </label><input id="rua" type="text" name="rua">	
-					<label  class="lblfor" >Nº: </label><input id="num" type="text" name="num">
-					<label  class="lblfor">Bairro: </label><input id="bairro" type="text" name="bairro">
-					<label  class="lblfor">UF: </label><input id="uf" type="text" maxlength="2" name="uf">
-					<label  class="lblfor">Município: </label><input id="mun" type="text" name="mun">
+					<label class="lblfor">Endereço: </label><input id="rua" type="text" name="end">	
+					<label class="lblfor" type="number">Nº: </label><input id="num" type="text" name="num">
+					<label class="lblfor">Bairro: </label><input id="bairro" type="text" name="bairro"><br/><br/>
+					<label class="lblfor">UF: </label><input id="uf" type="text" maxlength="2" name="uf">
+					<label class="lblfor">Município: </label><input id="mun" type="text" name="mun">
 				</div>
 
 					<br>
 				
 				<div style="margin: 10px">
-					<label  class="lblfor">Telefone: </label><input id="tel" type="tel" name="tel">	
-					<label  class="lblfor">WhatsApp: </label><input id="cel" type="tel" name="cel">
-					<label  class="lblfor">E-mail: </label><input id="email" type="email" name="email">	
-					<label  class="lblfor">Site:</label><input id="site" type="text" name="site">		
+					<label class="lblfor">Telefone: </label><input id="tel" type="tel" name="tel">	
+					<label class="lblfor">WhatsApp: </label><input id="cel" type="tel" name="wpp"><br/><br/>
+					<label class="lblfor">E-mail: </label><input id="email" type="email" name="email">	
+					<label class="lblfor">Site: </label><input id="site" type="text" name="site">		
 					<br>			
 				</div>	
 
 				<div style="margin: 20px 10px 10px 10px;">
 
-					<label  class="lblfor" id="lblsenha">Senha: </label><input id="senha" type="password" name="senha">
-					<label  class="lblfor" id="lblcsenha">Confirmar Senha: </label><input id="confsenha" type="password" name="confsenha">	
+					<label class="lblfor" id="lblsenha">Senha: </label><input id="senha" type="password" name="senha">
+					<label class="lblfor" id="lblcsenha">Confirmar Senha: </label><input id="confSenha" type="password" name="confSenha">	
 
 					<input id="cadastrar" class="btn btn-primary btn-lg" type="submit" value="Cadastrar" name="cadastrar" onclick="confirmar()"></input>
 				</div>			
 			</form>
+
+			<?php
+
+				if(isset($_SESSION['camposVazios'])){
+					echo('<br/><b>Preencha todos os campos!</b>');
+				}
+
+				if(isset($_SESSION['emailInvalido'])){
+					echo('<br/><b>O email digitado já foi cadastrado!</b>');
+				}
+
+				if(isset($_SESSION['senhaInvalida'])){
+					echo('<br/><b>As senhas não coincidem!</b>');
+				}
+				unset($_SESSION['camposVazios']);
+				unset($_SESSION['emailInvalido']);
+				unset($_SESSION['senhaInvalida']);
+			?>
 
 		</div>
 	</div>	
@@ -114,7 +129,7 @@
 					</div>
 
 					<div class="col-md-7" >
-						<div class="col-md-1 lista_footer"><a href="index.html">HOME</a></div>
+						<div class="col-md-1 lista_footer"><a href="index.php">HOME</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">SOBRE</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">PARCEIROS</a></div>
 						<div class="col-md-1 lista_footer"><a href="#" style="margin-left: 30px">CONTATO</a></div>
@@ -171,11 +186,7 @@
 
 			            $('#txtlogo').hide();
 			        })
-			      })
-
-			      function confirmar(){
-			      	alert("Cadastro realizado com sucesso");			      		
-			      }	    	
+			      })	
 
 		    </script>
 		</footer>

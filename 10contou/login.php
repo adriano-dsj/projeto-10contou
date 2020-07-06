@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>10Contou - Cadastro do cliente</title>
+	<title>10Contou - Acesse ou cadastre-se</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -16,8 +16,7 @@
 
 		    <div style="padding-right: 40px;">
 				<ul class="nav navbar-nav navbar-right">
-					<a style="color: #FFF96B ;" href="cadastro.html">Cadastre-se</a>
-					<button class="btn btn-warning" style="margin-left: 10px;"><a href="login.html" style="color: black; text-decoration: none;">ENTRAR</a></button>
+					<a style="color: #FFF96B ;" href="cadastro.php">Cadastre-se</a>
 				</ul>
 			</div>		
 
@@ -25,14 +24,14 @@
 				
 			    <div class="navbar-header">
 			    	<!-- LOGO -->
-			    	<a href="index.html" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
+			    	<a href="index.php" alt="10contou - home" title="Home"><img id="logo" src="img/10contou.png" ></a>
 			    	
 					
 			    </div>
 
 				<div class="collapse navbar-collapse" id="menu_lista">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="link_menu"><a href="index.html">HOME</a></li>
+						<li class="link_menu"><a href="index.php">HOME</a></li>
 						<li class="link_menu"><a href="#sobre">SOBRE</a></li>
 						<li class="link_menu"><a href="#parceiros">PARCEIROS</a></li>
 						<li class="link_menu"><a href="#contato">CONTATO</a></li>
@@ -46,32 +45,13 @@
 	<div id="principal" style="background-color: #FFF96B;">
 		<div class="container" style="background: #FFF96B;">
 
-			<form  action="login.html" method="get" id="cadastrocli">
-				<br>
-
-				<label class="lblcli">Nome: </label> <input id="nome" type="text" name="nome">
-
-				<br>
-				
-				<label class="lblcli" >Celular: </label><input id="cel" type="tel" name="cel">
-				<label class="lblcli" >Email: </label><input id="email" type="email" name="email">
-				
-				<br>
-
-				<label class="lblcli" >UF: </label><input id="uf" type="text" maxlength="2" name="uf">
-				<label class="lblcli" >Município: </label><input id="mun" type="text" name="mun">
-
-				<br>
-			
-				<label class="lblcli"  id="lblrua">Rua: </label><input id="rua" type="text" name="rua">	
-				<label class="lblcli" id="lblnum">Nº: </label><input id="num" type="number" name="num">
-		
-				<br>			
-
-				<label class="lblcli" id="lblsenha">Senha: </label><input id="senha" type="password" name="senha">
-				<label class="lblcli" id="lblcsenha">Confirmar Senha: </label><input id="confsenha" type="password" name="confsenha">	
-
-				<input id="cadastrar" class="btn btn-primary btn-lg" type="submit" value="Cadastrar" name="cadastrar" onclick="confirmar()">		
+			<h2>Entre com sua conta de consumidor ou fornecedor</h2>
+			<form  action="_back_end/login.php" method="post" id="logins" style="margin-top: 10px; margin-bottom: 55px;"><br/>
+				<label class="lblcli" >Email:</label>
+				<input id="email" type="email" name="email"><br/>
+				<label class="lblcli" id="lblsenha">Senha: </label>
+				<input style="margin-left: 5px;" id="senha" type="password" name="senha"><br/>
+				<input id="login" class="btn btn-primary btn-sm" type="submit" value="login" name="login">
 			</form>
 
 		</div>
@@ -88,7 +68,7 @@
 					</div>
 
 					<div class="col-md-7" >
-						<div class="col-md-1 lista_footer"><a href="index.html">HOME</a></div>
+						<div class="col-md-1 lista_footer"><a href="index.php">HOME</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">SOBRE</a></div>
 						<div class="col-md-1 lista_footer"><a href="#">PARCEIROS</a></div>
 						<div class="col-md-1 lista_footer"><a href="#" style="margin-left: 30px">CONTATO</a></div>
@@ -132,10 +112,7 @@
 			</div>
 
 		    <script src="js/jquery.min.js"></script>
-		    <script type="text/javascript">
-			      function confirmar(){
-			      	alert("Cadastro realizado com sucesso");
-			      }	  		    	
+		    <script type="text/javascript">		    	
 		    </script>
 		</footer>
 	</body>

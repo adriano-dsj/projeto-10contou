@@ -8,7 +8,7 @@ nav { min-height: 90px; margin-bottom: 0 !important; background-color: #0B0B61;}
 #main img  { max-height: 400px; background-color: #FFF96B; }
 #middle { margin: 0px 0; background-color: #FFF96B; }
 #logo { margin:20px 0; }
-#menu_lista{margin-left: 500px;}
+#menu_lista{margin-left: 400px;}
 
 .lista_footer { margin-top:35px; margin-left: 15px; }
 .lista_footer a {color: #FFF96B; }
@@ -32,7 +32,6 @@ nav { min-height: 90px; margin-bottom: 0 !important; background-color: #0B0B61;}
 
 #uf{width: 25px;}
 #num{width: 50px;}
-#confsenha{}
 #cadastrar{margin-bottom: 10px; margin-left: 60px;}
 
 .lblcli{margin: 10px;}
